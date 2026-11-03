@@ -1,31 +1,36 @@
-const heroProducts = [
-  { src: 'designs/SVG/Shampoo Straight.svg', alt: 'Being Nourish and Shine shampoo' },
-  { src: 'designs/SVG/Dry shampoo tilted.svg', alt: 'Being Instant Refresh dry shampoo' },
-  { src: 'designs/SVG/Mousse Curly Hair.svg', alt: 'Being Goodbye Frizz mousse' },
-  { src: 'designs/SVG/Shampoo Coiled Hair.svg', alt: 'Being Max Moisture shampoo' },
-  { src: 'designs/SVG/leave in moisturizer.svg', alt: 'Being leave-in moisturizer' }
-];
-
-const centerProduct = document.querySelector('.orbit-product-center');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (centerProduct && !reducedMotion) {
-  let currentProduct = 0;
-  window.setInterval(() => {
-    currentProduct = (currentProduct + 1) % heroProducts.length;
-    centerProduct.style.opacity = '0';
-    window.setTimeout(() => {
-      centerProduct.src = heroProducts[currentProduct].src;
-      centerProduct.alt = heroProducts[currentProduct].alt;
-      centerProduct.style.opacity = '1';
-    }, 250);
-  }, 3200);
+const hairMenu = document.querySelector('.hair-menu');
+
+if (hairMenu) {
+  hairMenu.querySelectorAll('.hair-menu-list a').forEach((link) => {
+    link.addEventListener('click', () => {
+      hairMenu.open = false;
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!hairMenu.contains(event.target)) hairMenu.open = false;
+  });
+
+  hairMenu.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      hairMenu.open = false;
+      hairMenu.querySelector('summary').focus();
+    }
+  });
 }
 
 document.querySelectorAll('.routine').forEach((routine) => {
   const buttonImage = routine.querySelector('.mine-button img');
   routine.addEventListener('toggle', () => {
     buttonImage.src = routine.open ? 'designs/SVG/After Button.svg' : 'designs/SVG/before button.svg';
+    if (!reducedMotion) {
+      buttonImage.animate(
+        [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }],
+        { duration: 650, easing: 'ease-out' }
+      );
+    }
   });
 });
 

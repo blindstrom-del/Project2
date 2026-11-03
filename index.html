@@ -15,10 +15,18 @@
       <img src="designs/SVG/logo.svg" alt="Being">
     </a>
     <nav class="hair-nav" aria-label="Hair types">
-      <a href="#straight">straight</a>
-      <a href="#wavy">wavy</a>
-      <a href="#curly">curly</a>
-      <a href="#coiled">coiled</a>
+      <details class="hair-menu">
+        <summary class="hair-nav-toggle" aria-label="Open hair type menu">
+          <img class="hair-nav-art" src="designs/SVG/Navigation Bar.svg" alt="" aria-hidden="true">
+          <span class="sr-only">Hair types</span>
+        </summary>
+        <ul class="hair-menu-list">
+          <li><a href="#straight">Straight hair</a></li>
+          <li><a href="#wavy">Wavy hair</a></li>
+          <li><a href="#curly">Curly hair</a></li>
+          <li><a href="#coiled">Coiled hair</a></li>
+        </ul>
+      </details>
     </nav>
   </header>
 
@@ -71,7 +79,7 @@
     </section>
 
     <section class="hair-section wavy" id="wavy" aria-labelledby="wavy-title">
-      <div class="texture texture-wavy" aria-hidden="true"></div>
+      <img class="texture texture-wavy" src="designs/SVG/Wavy Hair.svg" alt="" aria-hidden="true">
       <div class="section-heading">
         <p class="section-kicker">02 / wave hello</p>
         <h2 id="wavy-title">wavy hair</h2>
@@ -97,7 +105,7 @@
     </section>
 
     <section class="hair-section curly" id="curly" aria-labelledby="curly-title">
-      <div class="texture texture-curly" aria-hidden="true"></div>
+      <img class="texture texture-curly" src="designs/SVG/Wavy Hair.svg" alt="" aria-hidden="true">
       <div class="section-heading">
         <p class="section-kicker">03 / let it curl</p>
         <h2 id="curly-title">curly hair</h2>
@@ -123,7 +131,7 @@
     </section>
 
     <section class="hair-section coiled" id="coiled" aria-labelledby="coiled-title">
-      <div class="texture texture-coiled" aria-hidden="true"></div>
+      <img class="texture texture-coiled" src="designs/SVG/Coiled Hair.svg" alt="" aria-hidden="true">
       <div class="section-heading">
         <p class="section-kicker">04 / coil care</p>
         <h2 id="coiled-title">coiled hair</h2>
